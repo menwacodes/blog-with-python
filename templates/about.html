@@ -1,0 +1,31 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/about-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Ye Olde Abouté Page</h1>
+            <span class="subheading">What I do and site content.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>Firstly, the content on this site is all opinion.  Nothing here should be taken as fact.  Or read, by anyone.</p>
+        <p>Second Firstly, I am a highly-technical people leader with a knack for explaining complicated technical concepts in a very easy-to-understand way.</p>
+        <p>I also enjoy cooking, baking, and making full-stack websites</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  {% include "footer.html" %}
