@@ -1,3 +1,13 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/flask
+# Edit at https://www.toptal.com/developers/gitignore?templates=flask
+
+### Flask ###
+instance/*
+!instance/.gitignore
+.webassets-cache
+
+### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -20,6 +30,7 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
@@ -49,7 +60,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
-cover/
+pytestdebug.log
 
 # Translations
 *.mo
@@ -63,16 +74,15 @@ db.sqlite3-journal
 
 # Flask stuff:
 instance/
-.webassets-cache
 
 # Scrapy stuff:
 .scrapy
 
 # Sphinx documentation
 docs/_build/
+doc/_build/
 
 # PyBuilder
-.pybuilder/
 target/
 
 # Jupyter Notebook
@@ -83,9 +93,7 @@ profile_default/
 ipython_config.py
 
 # pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+.python-version
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
@@ -112,6 +120,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+pythonenv*
 
 # Spyder project settings
 .spyderproject
@@ -134,5 +143,7 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
-# Cython debug symbols
-cython_debug/
+# profiling data
+.prof
+
+# End of https://www.toptal.com/developers/gitignore/api/flask
