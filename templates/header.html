@@ -24,6 +24,9 @@
     <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename='css/clean-blog.min.css') }}" rel="stylesheet">
 
+    <!-- Include Moment -->
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
 </head>
 
 <body>

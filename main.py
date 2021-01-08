@@ -2,6 +2,7 @@
 from flask import Flask, render_template, redirect, url_for, flash, abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
+from flask_moment import Moment
 from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -31,6 +32,8 @@ login_manager.init_app(app)
 # WRAP APP IN GRAVATAR
 gravatar = Gravatar(app, size=50, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
 
+# WRAP APP IN MOMENT
+moment = Moment(app)
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
