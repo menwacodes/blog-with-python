@@ -4,6 +4,7 @@
 
 ### Personal Files ###
 url.txt
+sensitive.py
 
 ### Flask ###
 instance/*

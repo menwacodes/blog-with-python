@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, abort
+from flask import Flask, render_template, redirect, url_for, flash, abort, request
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from flask_moment import Moment
@@ -13,6 +13,8 @@ from functools import wraps
 
 from flask_gravatar import Gravatar
 import os
+
+from sendEmail import send_email
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET-KEY', 'cZzDjeWfBKFZ_CKJWbbfDeEWoybK1fKpaX9cKKqGbvc')
@@ -217,7 +219,25 @@ def about():
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    if request.method == 'POST':
+        greeting = "Successfully sent your message"
+        # Grab form data
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        message = request.form['message']
+
+        # Create email fields
+        subject = f"Blog message from {name}"
+        content = f"Message:\n{message}\n\nEmail: {email}\n\nPhone: {phone}"
+
+        # Send email
+        send_email(subject, content)
+        return render_template('contact.html', greeting=greeting)
+
+    elif request.method == 'GET':
+        greeting = "Contact Me"
+        return render_template('contact.html', greeting=greeting)
 
 
 @app.route("/new-post", methods=['GET', 'POST'])
